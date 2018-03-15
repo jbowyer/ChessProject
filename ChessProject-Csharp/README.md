@@ -14,3 +14,13 @@ Additionally, Pieces can be given two commands: move and capture (we will ignore
 Your task is to get all unit tests found under the Tests folder passing. Since you plan to be on the project long term, think about how you would implement the solution, what other test coverage might be necessary and what you would do to make future features easier to implement.
 
 Good luck, and please reach out to us if you have any questions!
+
+__My Changes__
+
+-Added Unit Testing project and added NUnit3TestAdapter reference via NuGet so unit tests can be run through the native Test Explorer in Visual Studio
+
+-Implemented necessary logic as per specifications and failing unit tests.
+
+-Added abstract class called Piece which Pawn inherits from, this will make things easier in the long term when writing the code for other pieces.
+
+-For future unit tests it would be useful to check movements of other piece types. It would also be useful to write tests for each color.  

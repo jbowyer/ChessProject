@@ -5,3 +5,10 @@
 \\psf\Home\Documents\Chess\Chess\bin\Debug\nunit.framework.xml
 \\psf\Home\Documents\Chess\Chess\obj\Debug\Gfi.Hiring.dll
 \\psf\Home\Documents\Chess\Chess\obj\Debug\Gfi.Hiring.pdb
+D:\Source\ChessProject-master\ChessProject-Csharp\Chess\bin\Debug\Gfi.Hiring.dll
+D:\Source\ChessProject-master\ChessProject-Csharp\Chess\bin\Debug\Gfi.Hiring.pdb
+D:\Source\ChessProject-master\ChessProject-Csharp\Chess\bin\Debug\nunit.framework.dll
+D:\Source\ChessProject-master\ChessProject-Csharp\Chess\bin\Debug\nunit.framework.xml
+D:\Source\ChessProject-master\ChessProject-Csharp\Chess\obj\Debug\Chess.csproj.CoreCompileInputs.cache
+D:\Source\ChessProject-master\ChessProject-Csharp\Chess\obj\Debug\Gfi.Hiring.dll
+D:\Source\ChessProject-master\ChessProject-Csharp\Chess\obj\Debug\Gfi.Hiring.pdb

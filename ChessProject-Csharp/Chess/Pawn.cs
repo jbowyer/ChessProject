@@ -2,55 +2,46 @@
 
 namespace Gfi.Hiring
 {
-    public class Pawn
+    ///Pawn inherits from Piece
+    public class Pawn : Piece
     {
-        private ChessBoard _chessBoard;
-        private int _xCoordinate;
-        private int _yCoordinate;
-        private PieceColor _pieceColor;
-        
-        public ChessBoard ChessBoard
+        public Pawn(PieceColor pieceColor): base(pieceColor){}
+
+        //override the move method defined in the base Piece class.
+        public override void Move(MovementType movementType, int newX, int newY)
         {
-            get { return _chessBoard; }
-            set { _chessBoard = value; }
+            if (IsLegalMove(newX, newY, movementType))
+            {
+                //Used a case statement here instead of an if as it may be worth adding additional movement types in the future, e.g FirstMove
+                switch (movementType)
+                {
+                    case MovementType.Capture:
+                        //In future add logic to remove the captured pawn from the board, not implemented yet as per specification.
+                        throw new NotImplementedException("Capture movement not yet implemented.");
+                    case MovementType.Move:
+                        XCoordinate = newX;
+                        YCoordinate = newY;
+                        break;
+                };
+            }
+            //In future may want to throw an exception here because If an illegal movement is attempted at this point there may be an issue with the UI e.g:
+            //else
+            //{
+            //    throw new IllegalMovementException("Movement not allowed.");
+            //}
+
         }
 
-        public int XCoordinate
+        //Checks for both Move and Capture types, if the type is just to move the pawn must move forward 1 space at a time
+        //if the move is to capture the pawn can move left,right or straight ahead 1 space.
+        public override bool IsLegalMove(int newXCoord, int newYCoord, MovementType movementType)
         {
-            get { return _xCoordinate; }
-            set { _xCoordinate = value; }
-        }
-        
-        public int YCoordinate
-        {
-            get { return _yCoordinate; }
-            set { _yCoordinate = value; }
-        }
-
-        public PieceColor PieceColor
-        {
-            get { return _pieceColor; }
-            private set { _pieceColor = value; }
-        }
-
-        public Pawn(PieceColor pieceColor)
-        {
-            _pieceColor = pieceColor;
-        }
-
-        public void Move(MovementType movementType, int newX, int newY)
-        {
-            throw new NotImplementedException("Need to implement Pawn.Move()");
-        }
-
-        public override string ToString()
-        {
-            return CurrentPositionAsString();
-        }
-
-        protected string CurrentPositionAsString()
-        {
-            return string.Format("Current X: {1}{0}Current Y: {2}{0}Piece Color: {3}", Environment.NewLine, XCoordinate, YCoordinate, PieceColor);
+            return ((Math.Abs(YCoordinate - newYCoord) == 1 //Moved forward 1 space
+                && XCoordinate == newXCoord  //Not moved right or left.
+                && movementType == MovementType.Move) // logic branch for moving.
+                || (Math.Abs(YCoordinate - newYCoord) == 1 //Moved forward 1 space.
+                && (Math.Abs(XCoordinate - newXCoord) == 1 || Math.Abs(XCoordinate - newXCoord) == 0) //Check if the pawn has moved left or right 1 space or continued straight ahead.
+                && movementType == MovementType.Capture)); // logic branch for capturing.
         }
 
     }
